@@ -1,8 +1,14 @@
 package remidv.fr.remidvclient.commands;
 
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.ChatScreen;
+
 public class CommandsManager {
-    public static void PlayerSendMessage()
+    public static boolean clientSendMessage(String playerMessage)
     {
-        System.out.println("bonjour les gars");
+        if (playerMessage.startsWith(".")) {
+            return true;
+        }
+        return false;
     }
 }
