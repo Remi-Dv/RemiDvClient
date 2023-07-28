@@ -16,8 +16,7 @@ public class RemiDvClientClient implements ClientModInitializer
 {
     public void onInitializeClient()
     {
-        System.out.println("Client Initialized");
-
+        System.out.println("Client Initialized!");
 
         ModConfig.InitializeKeyBinds();
 
