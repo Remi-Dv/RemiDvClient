@@ -1,14 +1,15 @@
 package remidv.fr.remidvclient.mixin;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.gui.screen.ChatScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.At;
-import org.w3c.dom.Text;
-import remidv.fr.remidvclient.UI.HUD.HUDInfo;
 
+@Environment(EnvType.CLIENT)
 @Mixin(MinecraftClient.class)
 public class MixinMinecraft
 {
