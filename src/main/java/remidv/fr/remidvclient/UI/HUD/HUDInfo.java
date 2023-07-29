@@ -2,14 +2,10 @@ package remidv.fr.remidvclient.UI.HUD;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.loader.impl.lib.sat4j.core.Vec;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.registry.RegistryKey;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec2f;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.joml.*;
 
@@ -48,16 +44,10 @@ public class HUDInfo {
         y += textRenderer.fontHeight + 2;
         drawContext.drawText(textRenderer, netherCoordsText, x, y, color, false);
 
-        Vector3f coordsWaypoint = GetProjection(new Vector3f(0,100,0), drawContext);
-
-        System.out.println(coordsWaypoint.x + " " + coordsWaypoint.y + " " + coordsWaypoint.z);
-        drawContext.drawText(textRenderer, "X", (int) coordsWaypoint.x, (int) coordsWaypoint.y, color, false);
-
         drawContext.draw();
     }
-
-    private static Vector3f GetProjection(Vector3f coords, DrawContext drawContext) {
+    private static Vector2f GetProjection(Vector3f coords, DrawContext drawContext) {
         Vector3f projection = coords.mulPosition(drawContext.getMatrices().peek().getPositionMatrix());
-        return projection;
+        return new Vector2f(projection.x, projection.y);
     }
 }

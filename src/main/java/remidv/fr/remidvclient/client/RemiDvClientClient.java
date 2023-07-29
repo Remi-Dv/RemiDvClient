@@ -5,6 +5,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.message.v1.ClientSendMessageEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.fabricmc.fabric.api.event.EventFactory;
 import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
 import net.minecraft.client.util.ChatMessages;
@@ -25,6 +26,10 @@ public class RemiDvClientClient implements ClientModInitializer
 
         HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
             HUDInfo.DisplayCoordinates(drawContext);
+        });
+
+        WorldRenderEvents.LAST.register((t) ->{
+
         });
     }
 }
