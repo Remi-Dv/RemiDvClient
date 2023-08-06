@@ -43,6 +43,7 @@ public class HUDInfo {
         drawContext.drawText(textRenderer, overworldCoordsText, x, y, color, false);
         y += textRenderer.fontHeight + 2;
         drawContext.drawText(textRenderer, netherCoordsText, x, y, color, false);
+        drawContext.drawHorizontalLine(10, 10, 100, 100);
 
         drawContext.draw();
     }
