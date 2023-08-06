@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RemiDv.fr.RemiDvClient.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RemiDv.fr.RemiDvClient.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RemiDv.fr.RemiDvClient.test.iml" filepath="$PROJECT_DIR$/.idea/modules/RemiDv.fr.RemiDvClient.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RemiDvClient.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RemiDvClient.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RemiDvClient.test.iml" filepath="$PROJECT_DIR$/.idea/modules/RemiDvClient.test.iml" />
     </modules>

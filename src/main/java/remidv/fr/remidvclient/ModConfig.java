@@ -10,6 +10,10 @@ import javax.swing.text.JTextComponent;
 public class ModConfig {
     public static KeyBinding openMenuKeyBinding;
 
+    public static boolean isModMenuKeyPressed = false;
+
+
+
     public static void InitializeKeyBinds()
     {
         openMenuKeyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
