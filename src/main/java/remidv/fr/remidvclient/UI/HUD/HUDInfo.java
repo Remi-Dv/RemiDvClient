@@ -7,19 +7,25 @@ import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.World;
-import org.joml.*;
 
 @Environment(EnvType.CLIENT)
 public class HUDInfo {
-    private static MinecraftClient client = MinecraftClient.getInstance();
-    public static void DisplayCoordinates(DrawContext drawContext) {
+    private MinecraftClient minecraftClient;
+    private TextRenderer textRenderer;
 
-        int color = 0xffffff;
-        double playerX = client.player.getX();
-        double playerY = client.player.getY();
-        double playerZ = client.player.getZ();
+    private int fontColor = 0xffffff;
+    public HUDInfo(MinecraftClient client) {
+        minecraftClient = client;
+        textRenderer = minecraftClient.textRenderer;
+    }
 
-        RegistryKey<World> dimensionKey = client.world.getRegistryKey();
+    public void draw(DrawContext drawContext) {
+
+        double playerX = minecraftClient.player.getX();
+        double playerY = minecraftClient.player.getY();
+        double playerZ = minecraftClient.player.getZ();
+
+        RegistryKey<World> dimensionKey = minecraftClient.world.getRegistryKey();
 
         String overworldCoordsText;
         String netherCoordsText;
@@ -38,17 +44,8 @@ public class HUDInfo {
         int x = 2;
         int y = 2;
 
-        TextRenderer textRenderer = client.textRenderer;
-
-        drawContext.drawText(textRenderer, overworldCoordsText, x, y, color, false);
+        drawContext.drawTextWithShadow(this.textRenderer, overworldCoordsText, x, y, this.fontColor);
         y += textRenderer.fontHeight + 2;
-        drawContext.drawText(textRenderer, netherCoordsText, x, y, color, false);
-        drawContext.drawHorizontalLine(10, 10, 100, 100);
-
-        drawContext.draw();
-    }
-    private static Vector2f GetProjection(Vector3f coords, DrawContext drawContext) {
-        Vector3f projection = coords.mulPosition(drawContext.getMatrices().peek().getPositionMatrix());
-        return new Vector2f(projection.x, projection.y);
+        drawContext.drawTextWithShadow(this.textRenderer, netherCoordsText, x, y, this.fontColor);
     }
 }

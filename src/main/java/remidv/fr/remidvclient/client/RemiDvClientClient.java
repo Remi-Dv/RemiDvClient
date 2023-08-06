@@ -26,12 +26,12 @@ public class RemiDvClientClient implements ClientModInitializer
 
         ModConfig.InitializeKeyBinds();
 
-        HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
-            HUDInfo.DisplayCoordinates(drawContext);
-        });
+        //HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
+        //    HUDInfo.DisplayCoordinates(drawContext);
+        //});
 
-        WorldRenderEvents.LAST.register((t) ->{
+        //WorldRenderEvents.LAST.register((t) ->{
 
-        });
+        //});
     }
 }
