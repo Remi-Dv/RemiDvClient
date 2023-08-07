@@ -7,9 +7,9 @@
   ],
   "client": [
     "MixinChatScreen",
-    "MixinClientPlayNetworkHandler",
     "MixinInGameHud",
-    "MixinMinecraft"
+    "MixinMinecraft",
+    "MixinScreen"
   ],
   "injectors": {
     "defaultRequire": 1

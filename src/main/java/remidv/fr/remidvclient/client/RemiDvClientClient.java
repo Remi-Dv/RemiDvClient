@@ -4,27 +4,25 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.message.v1.ClientSendMessageEvents;
-import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
-import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
-import net.fabricmc.fabric.api.event.EventFactory;
-import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
-import net.minecraft.client.util.ChatMessages;
-import net.minecraft.network.message.SentMessage;
-import net.minecraft.server.command.CommandManager;
-import net.minecraft.util.ActionResult;
+import net.minecraft.text.Text;
 import remidv.fr.remidvclient.ModConfig;
-import remidv.fr.remidvclient.UI.GUIManager;
-import remidv.fr.remidvclient.UI.HUD.HUDInfo;
 
 @Environment(EnvType.CLIENT)
 public class RemiDvClientClient implements ClientModInitializer
 {
+    private ModConfig modConfig;
     public void onInitializeClient()
     {
         System.out.println("Client Initialized!");
 
-        ModConfig.InitializeKeyBinds();
+        modConfig = new ModConfig();
+
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            while (modConfig.openMenuKeyBinding.wasPressed()) {
+                System.out.println("héhéhéh");
+                //client.player.sendMessage(Text.literal("Key 1 was pressed!"), false);
+            }
+        });
 
         //HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
         //    HUDInfo.DisplayCoordinates(drawContext);

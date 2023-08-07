@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import remidv.fr.remidvclient.UI.Chat.ChatControl;
 import remidv.fr.remidvclient.commands.CommandsManager;
 
 @Environment(EnvType.CLIENT)
@@ -19,9 +20,6 @@ public class MixinChatScreen
 {
     @Inject(method = "sendMessage", at = @At("HEAD"), cancellable = true)
     public void onClientSendMessage(String chatText, boolean addToHistory, CallbackInfoReturnable<Boolean> ci) {
-        boolean cancelMessage = CommandsManager.clientSendMessage(chatText);
-        if (cancelMessage){
-            ci.cancel();
-        }
+        //code si pour filtrer les messages envoyés
     }
 }
