@@ -9,7 +9,8 @@
     "MixinChatScreen",
     "MixinInGameHud",
     "MixinMinecraft",
-    "MixinScreen"
+    "MixinScreen",
+    "MixinTitleScreen"
   ],
   "injectors": {
     "defaultRequire": 1
