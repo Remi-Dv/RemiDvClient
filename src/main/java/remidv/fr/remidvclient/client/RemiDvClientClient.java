@@ -5,6 +5,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import remidv.fr.remidvclient.ModConfig;
+import remidv.fr.remidvclient.commands.CommandsManager;
 
 @Environment(EnvType.CLIENT)
 public class RemiDvClientClient implements ClientModInitializer
@@ -14,6 +15,8 @@ public class RemiDvClientClient implements ClientModInitializer
         System.out.println("Client Initialized!");
 
         modConfig = new ModConfig();
+
+        CommandsManager.InitializeCommands();
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (modConfig.openMenuKeyBinding.wasPressed()) {
