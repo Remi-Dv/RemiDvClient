@@ -4,15 +4,13 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.minecraft.text.Text;
 import remidv.fr.remidvclient.ModConfig;
 
 @Environment(EnvType.CLIENT)
 public class RemiDvClientClient implements ClientModInitializer
 {
     private ModConfig modConfig;
-    public void onInitializeClient()
-    {
+    public void onInitializeClient() {
         System.out.println("Client Initialized!");
 
         modConfig = new ModConfig();
