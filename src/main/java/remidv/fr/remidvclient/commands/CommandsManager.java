@@ -3,6 +3,7 @@ package remidv.fr.remidvclient.commands;
 import net.minecraft.text.Text;
 import remidv.fr.remidvclient.RemiDvClient;
 import remidv.fr.remidvclient.commands.commandsList.LookCommand;
+import remidv.fr.remidvclient.commands.commandsList.SayCommand;
 import remidv.fr.remidvclient.commands.commandsList.SetOrientationCommand;
 
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class CommandsManager {
         commandsList = new ArrayList<>();
 
         commandsList.add(new LookCommand());
+        commandsList.add(new SayCommand());
         commandsList.add(new SetOrientationCommand());
     }
 }
