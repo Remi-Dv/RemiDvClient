@@ -1,12 +1,22 @@
 package remidv.fr.remidvclient.commands.commandsList;
 
+import remidv.fr.remidvclient.commands.Argument;
 import remidv.fr.remidvclient.commands.Command;
+import remidv.fr.remidvclient.commands.arguments.IntArgument;
+
+import java.util.ArrayList;
 
 public class LookCommand extends Command {
-    void LookCommand(){
-        super.commandName = "look";
+    public LookCommand(){
+        commandName = "look";
+        arguments = new Argument[]{
+                new IntArgument(),
+                new IntArgument()
+        };
     }
-    public void execute(String commandText) {
+
+    @Override
+    public void executeCommand(String commandText) {
 
     }
 }

@@ -16,7 +16,7 @@ public class MixinScreen {
         KeyBinding openMenuKeyBinding = ModConfig.openMenuKeyBinding;  // Récupérer la touche personnalisée
 
         if (openMenuKeyBinding.matchesKey(keyCode, scanCode)) {
-            System.out.println("salut");
+
         }
     }
 }

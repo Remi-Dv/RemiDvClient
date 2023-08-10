@@ -11,22 +11,15 @@ import java.util.List;
 public class CommandsManager {
     public static List<Command> commandsList;
     public static boolean clientSendMessage(String playerMessage) {
-        //RemiDvClient.minecraftClient.cameraEntity.setYaw(0);
-        //RemiDvClient.minecraftClient.cameraEntity.setPitch(0);
-        //RemiDvClient.minecraftClient.player.setPos(
-        //        Math.round(RemiDvClient.minecraftClient.player.getX()),
-        //        Math.round(RemiDvClient.minecraftClient.player.getY()),
-        //        Math.round(RemiDvClient.minecraftClient.player.getZ())
-        //);
-
         if (playerMessage.startsWith(".")) {
             String targetCommandName = playerMessage.split(" ")[0];
             targetCommandName = targetCommandName.substring(1);
+            System.out.println(targetCommandName);
             Command targetCommand = getCommandByCommandName(targetCommandName);
             if (targetCommand == null){
                 RemiDvClient.minecraftClient.player.sendMessage(Text.literal("Invalid command"), false);
             } else {
-                //executer la fonction
+                targetCommand.executeCommand(playerMessage);
             }
             return true;
         }
@@ -35,6 +28,7 @@ public class CommandsManager {
 
     public static Command getCommandByCommandName(String commandName) {
         for (Command command : commandsList) {
+            System.out.println(command.getCommandName());
             if (command.getCommandName().equals(commandName)) {
                 return command;
             }

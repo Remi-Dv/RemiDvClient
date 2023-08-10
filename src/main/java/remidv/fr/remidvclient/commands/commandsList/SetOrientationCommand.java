@@ -1,13 +1,15 @@
 package remidv.fr.remidvclient.commands.commandsList;
 
+import remidv.fr.remidvclient.RemiDvClient;
 import remidv.fr.remidvclient.commands.Command;
 
 public class SetOrientationCommand extends Command {
-
-    void SetOrientationCommand(){
-        super.commandName = "setOrientation";
+    public SetOrientationCommand(){
+        commandName = "setorientation";
     }
-    public void execute(String commandText) {
-
+    @Override
+    public void executeCommand(String commandText) {
+        RemiDvClient.minecraftClient.cameraEntity.setYaw(0);
+        RemiDvClient.minecraftClient.cameraEntity.setPitch(0);
     }
 }
