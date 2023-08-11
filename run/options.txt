@@ -44,7 +44,7 @@ biomeBlendRadius:2
 renderClouds:"true"
 resourcePacks:["vanilla","fabric"]
 incompatibleResourcePacks:[]
-lastServer:mc.rynaorc.fr
+lastServer:127.0.0.1
 lang:fr_fr
 soundDevice:""
 chatVisibility:0
@@ -75,7 +75,7 @@ glDebugVerbosity:1
 skipMultiplayerWarning:true
 skipRealms32bitWarning:false
 hideMatchedNames:true
-joinedFirstServer:false
+joinedFirstServer:true
 hideBundleTutorial:false
 syncChunkWrites:true
 showAutosaveIndicator:true
