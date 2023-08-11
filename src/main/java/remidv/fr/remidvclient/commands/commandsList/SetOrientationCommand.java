@@ -10,8 +10,8 @@ public class SetOrientationCommand extends Command {
         commandName = "setorientation";
         description = "set orientation to certains value";
         arguments = new Argument[]{
-                new IntArgument(),
-                new IntArgument()
+                new IntArgument(null),
+                new IntArgument(null)
         };
     }
     @Override

@@ -5,6 +5,7 @@ import remidv.fr.remidvclient.RemiDvClient;
 import remidv.fr.remidvclient.commands.Argument;
 import remidv.fr.remidvclient.commands.Command;
 import remidv.fr.remidvclient.commands.CommandsManager;
+import remidv.fr.remidvclient.commands.arguments.StringArgument;
 
 public class HelpCommand extends Command {
     public HelpCommand(){

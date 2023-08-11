@@ -5,7 +5,6 @@ import remidv.fr.remidvclient.RemiDvClient;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class Command {
     public String commandName;

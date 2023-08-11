@@ -12,7 +12,7 @@ public class SayCommand extends Command {
         commandName = "say";
         description = "say something in chat";
         arguments = new Argument[]{
-                new StringArgument()
+                new StringArgument(null)
         };
     }
 

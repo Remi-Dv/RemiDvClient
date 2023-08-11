@@ -11,8 +11,8 @@ public class LookCommand extends Command {
         commandName = "look";
         description = "set orientation to look something";
         arguments = new Argument[]{
-                new IntArgument(),
-                new IntArgument()
+                new IntArgument(null),
+                new IntArgument(null)
         };
     }
 
