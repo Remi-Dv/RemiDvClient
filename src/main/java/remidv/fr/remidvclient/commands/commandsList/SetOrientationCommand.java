@@ -7,7 +7,7 @@ import remidv.fr.remidvclient.commands.arguments.IntArgument;
 
 public class SetOrientationCommand extends Command {
     public SetOrientationCommand(){
-        commandName = "setorientation";
+        commandName = "setOrientation";
         description = "set orientation to certains value";
         arguments = new Argument[]{
                 new IntArgument("0"),

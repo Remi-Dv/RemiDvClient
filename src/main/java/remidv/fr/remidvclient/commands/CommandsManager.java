@@ -8,10 +8,7 @@ import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import com.mojang.brigadier.tree.CommandNode;
 import net.minecraft.text.Text;
 import remidv.fr.remidvclient.RemiDvClient;
-import remidv.fr.remidvclient.commands.commandsList.HelpCommand;
-import remidv.fr.remidvclient.commands.commandsList.LookCommand;
-import remidv.fr.remidvclient.commands.commandsList.SayCommand;
-import remidv.fr.remidvclient.commands.commandsList.SetOrientationCommand;
+import remidv.fr.remidvclient.commands.commandsList.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +67,7 @@ public class CommandsManager {
         commandsList = new ArrayList<>();
 
         commandsList.add(new HelpCommand());
+        commandsList.add(new LookAtCommand());
         commandsList.add(new LookCommand());
         commandsList.add(new SayCommand());
         commandsList.add(new SetOrientationCommand());
