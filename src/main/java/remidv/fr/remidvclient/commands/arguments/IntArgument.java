@@ -5,6 +5,7 @@ import remidv.fr.remidvclient.commands.Argument;
 public class IntArgument extends Argument {
     public IntArgument(String value){
         defaultValue = value;
+        typeName = "Int";
     }
     @Override
     public Integer TryParse(String parameter){
