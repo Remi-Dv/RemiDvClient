@@ -9,6 +9,7 @@ import remidv.fr.remidvclient.commands.arguments.IntArgument;
 public class LookCommand extends Command {
     public LookCommand(){
         commandName = "look";
+        description = "set orientation to look something";
         arguments = new Argument[]{
                 new IntArgument(),
                 new IntArgument()
@@ -21,8 +22,7 @@ public class LookCommand extends Command {
             return;
         }
 
-        RemiDvClient.minecraftClient.cameraEntity.setYaw((Integer) argumentsValue.get(0));
-        RemiDvClient.minecraftClient.cameraEntity.setPitch((Integer) argumentsValue.get(1));
+
 
         CommandExecuted();
     }

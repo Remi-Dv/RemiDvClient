@@ -10,6 +10,7 @@ import remidv.fr.remidvclient.commands.arguments.StringArgument;
 public class SayCommand extends Command {
     public SayCommand(){
         commandName = "say";
+        description = "say something in chat";
         arguments = new Argument[]{
                 new StringArgument()
         };

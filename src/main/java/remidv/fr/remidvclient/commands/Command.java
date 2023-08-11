@@ -9,6 +9,7 @@ import java.util.concurrent.ExecutionException;
 
 public class Command {
     public String commandName;
+    public String description;
     public Argument[] arguments;
 
     public List<Object> argumentsValue;

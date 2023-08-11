@@ -8,6 +8,7 @@ import remidv.fr.remidvclient.commands.arguments.IntArgument;
 public class SetOrientationCommand extends Command {
     public SetOrientationCommand(){
         commandName = "setorientation";
+        description = "set orientation to certains value";
         arguments = new Argument[]{
                 new IntArgument(),
                 new IntArgument()
@@ -19,8 +20,8 @@ public class SetOrientationCommand extends Command {
             return;
         }
 
-        RemiDvClient.minecraftClient.cameraEntity.setYaw(0);
-        RemiDvClient.minecraftClient.cameraEntity.setPitch(0);
+        RemiDvClient.minecraftClient.cameraEntity.setYaw((Integer) argumentsValue.get(0));
+        RemiDvClient.minecraftClient.cameraEntity.setPitch((Integer) argumentsValue.get(1));
 
         CommandExecuted();
     }
