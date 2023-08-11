@@ -8,8 +8,7 @@ import remidv.fr.remidvclient.ModConfig;
 import remidv.fr.remidvclient.commands.CommandsManager;
 
 @Environment(EnvType.CLIENT)
-public class RemiDvClientClient implements ClientModInitializer
-{
+public class RemiDvClientClient implements ClientModInitializer {
     private ModConfig modConfig;
     public void onInitializeClient() {
         System.out.println("Client Initialized!");
