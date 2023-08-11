@@ -17,16 +17,12 @@ public class SayCommand extends Command {
 
     @Override
     public void executeCommand(String commandText) {
-        String[] splittedCommand = commandText.split(" ");
-        if (!hasCorrectNumberOfArguments(splittedCommand)){
-            RemiDvClient.minecraftClient.player.sendMessage(Text.literal("Invalid number of arguments"), false);
-            return;
-        }
-        if (!areArgumentsCorrect(splittedCommand)){
-            RemiDvClient.minecraftClient.player.sendMessage(Text.literal("Incorrect Argument(s)"), false);
+        if (!isCommandCorrect(commandText)){
             return;
         }
 
-        RemiDvClient.minecraftClient.player.networkHandler.sendChatMessage((String) arguments[0].argumentValue);
+        RemiDvClient.minecraftClient.player.networkHandler.sendChatMessage((String) argumentsValue.get(0));
+
+        CommandExecuted();
     }
 }

@@ -15,7 +15,13 @@ public class SetOrientationCommand extends Command {
     }
     @Override
     public void executeCommand(String commandText) {
+        if (!isCommandCorrect(commandText)){
+            return;
+        }
+
         RemiDvClient.minecraftClient.cameraEntity.setYaw(0);
         RemiDvClient.minecraftClient.cameraEntity.setPitch(0);
+
+        CommandExecuted();
     }
 }

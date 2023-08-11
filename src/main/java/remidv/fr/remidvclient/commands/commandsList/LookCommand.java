@@ -17,19 +17,13 @@ public class LookCommand extends Command {
 
     @Override
     public void executeCommand(String commandText) {
-        String[] splittedCommand = commandText.split(" ");
-        if (!hasCorrectNumberOfArguments(splittedCommand)){
-            RemiDvClient.minecraftClient.player.sendMessage(Text.literal("Invalid number of arguments"), false);
+        if (!isCommandCorrect(commandText)){
             return;
         }
 
-        if (!areArgumentsCorrect(splittedCommand)){
-            RemiDvClient.minecraftClient.player.sendMessage(Text.literal("Incorrect Argument(s)"), false);
-            return;
-        }
+        RemiDvClient.minecraftClient.cameraEntity.setYaw((Integer) argumentsValue.get(0));
+        RemiDvClient.minecraftClient.cameraEntity.setPitch((Integer) argumentsValue.get(1));
 
-
-        RemiDvClient.minecraftClient.cameraEntity.setYaw((Integer) arguments[0].argumentValue);
-        RemiDvClient.minecraftClient.cameraEntity.setPitch((Integer) arguments[1].argumentValue);
+        CommandExecuted();
     }
 }
