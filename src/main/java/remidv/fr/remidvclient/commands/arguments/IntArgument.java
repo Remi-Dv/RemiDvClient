@@ -4,9 +4,7 @@ import remidv.fr.remidvclient.commands.Argument;
 
 public class IntArgument extends Argument {
     public IntArgument(String value){
-        if (value != null){
-            defaultValue = value;
-        }
+        defaultValue = value;
     }
     @Override
     public Integer TryParse(String parameter){

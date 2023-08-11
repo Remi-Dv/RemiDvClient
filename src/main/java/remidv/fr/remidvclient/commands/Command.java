@@ -22,7 +22,8 @@ public class Command {
     }
     public boolean isCommandCorrect(String commandText){
         String[] splittedCommand = commandText.split(" ");
-        if (!hasCorrectNumberOfArguments(splittedCommand)){
+        splittedCommand = hasCorrectNumberOfArguments(splittedCommand);
+        if (splittedCommand == null){
             RemiDvClient.minecraftClient.player.sendMessage(Text.literal("Invalid number of arguments"), false);
             return false;
         }
@@ -33,17 +34,28 @@ public class Command {
         
         return true;
     }
-    public boolean hasCorrectNumberOfArguments(String[] commandText){
-        if (commandText.length >= arguments.length){
-            return true;
+    public String[] hasCorrectNumberOfArguments(String[] commandText){
+        for (int i = 0; i < arguments.length; i++){
+            if (commandText.length - 1 < arguments.length){
+                if (arguments[i].defaultValue == null){
+                    return null;
+                } else {
+                    String[] newCommandText = new String[commandText.length + 1];
+                    System.arraycopy(commandText, 0, newCommandText, 0, commandText.length);
+                    newCommandText[newCommandText.length - 1] = arguments[i].defaultValue;
+                    commandText = newCommandText;
+                }
+            }
         }
-        return false;
+        if (commandText.length >= arguments.length){
+            return commandText;
+        }
+        return null;
     }
     public boolean areArgumentsCorrect(String[] commandText){
         //fuse last elements
-        for (int i = arguments.length; i < commandText.length - 1; i++){ // 2  <4 i++
-            commandText[arguments.length] += " "; //".look" "1" "2"
-            //".look" "1 2"
+        for (int i = arguments.length; i < commandText.length - 1; i++){
+            commandText[arguments.length] += " ";
             commandText[arguments.length] += commandText[i+1];
         }
 
