@@ -9,8 +9,8 @@
     "MixinChatInputSuggestor",
     "MixinChatScreen",
     "MixinInGameHud",
+    "MixinKeyboard",
     "MixinMinecraft",
-    "MixinScreen",
     "MixinTitleScreen"
   ],
   "injectors": {
