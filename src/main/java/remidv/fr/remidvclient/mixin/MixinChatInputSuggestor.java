@@ -2,6 +2,7 @@ package remidv.fr.remidvclient.mixin;
 
 import com.mojang.brigadier.ParseResults;
 import com.mojang.brigadier.StringReader;
+import com.mojang.brigadier.suggestion.Suggestion;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import net.minecraft.client.gui.screen.ChatInputSuggestor;
@@ -16,7 +17,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import remidv.fr.remidvclient.commands.CommandsManager;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 @Mixin(ChatInputSuggestor.class)
 public class MixinChatInputSuggestor {
@@ -28,9 +31,9 @@ public class MixinChatInputSuggestor {
             cancellable = true,
             locals = LocalCapture.CAPTURE_FAILHARD)
     public void onRefresh(CallbackInfo ci, String string, StringReader reader) {
-        char prefix = CommandsManager.commandPrefix;
+        String prefix = String.valueOf(CommandsManager.commandPrefix);
 
-        if (reader.canRead(1) && reader.getString().startsWith(String.valueOf(prefix))){
+        if (reader.canRead(1) && reader.getString().startsWith(prefix, reader.getCursor())){
             CompletableFuture<Suggestions> suggestions = CommandsManager.getCompletionSuggestions(reader.getString(), reader.getCursor());
 
             this.pendingSuggestions = suggestions;

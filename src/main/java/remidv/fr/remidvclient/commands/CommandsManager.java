@@ -48,12 +48,34 @@ public class CommandsManager {
         SuggestionsBuilder suggestionsBuilder = new SuggestionsBuilder(chatInput, cursor);
 
         String targetCommandName = chatInput.substring(1);
-        String[] splittedCommand = targetCommandName.split(" ");
+        String[] splittedCommand = targetCommandName.split(" ", -1);
 
         if (splittedCommand.length == 1){
             for (Command command: commandsList){
                 if (command.commandName.startsWith(splittedCommand[0])){
                     suggestionsBuilder.suggest(commandPrefix + command.commandName);
+                }
+            }
+        } else if (splittedCommand.length > 1){
+            for (Command command: commandsList){
+                if (command.commandName.equals(splittedCommand[0])){
+                    String completeSuggestion = String.valueOf(commandPrefix);
+                    for (int i = 0; i < splittedCommand.length - 1; i++){
+                        if (i != 0){
+                            completeSuggestion += " ";
+                        }
+                        completeSuggestion += splittedCommand[i];
+                    }
+                    completeSuggestion += " ";
+
+                    if (command.arguments.length >= splittedCommand.length - 1){
+                        List<String> suggestions = command.arguments[splittedCommand.length-2]
+                                .GetSuggestions(splittedCommand[splittedCommand.length-1]);
+                        for (String possibleSuggestions: suggestions){
+                            suggestionsBuilder.suggest(completeSuggestion+possibleSuggestions);
+                        }
+                        break;
+                    }
                 }
             }
         }

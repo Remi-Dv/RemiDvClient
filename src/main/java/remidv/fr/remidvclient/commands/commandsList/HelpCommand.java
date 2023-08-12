@@ -5,6 +5,7 @@ import remidv.fr.remidvclient.RemiDvClient;
 import remidv.fr.remidvclient.commands.Argument;
 import remidv.fr.remidvclient.commands.Command;
 import remidv.fr.remidvclient.commands.CommandsManager;
+import remidv.fr.remidvclient.commands.arguments.CommandNameArgument;
 import remidv.fr.remidvclient.commands.arguments.StringArgument;
 
 public class HelpCommand extends Command {
@@ -12,7 +13,7 @@ public class HelpCommand extends Command {
         commandName = "help";
         description = "show every commands and description";
         arguments = new Argument[]{
-                new StringArgument("all")
+                new CommandNameArgument("all")
         };
     }
 

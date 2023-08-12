@@ -63,6 +63,9 @@ public class Command {
         for (int i = 1; i < arguments.length + 1; i++){
             try{
                 Object newArgument = arguments[i-1].TryParse(commandText[i]);
+                if (newArgument == null){
+                    return false;
+                }
                 argumentsValue.add(newArgument);
             } catch (NumberFormatException e){
                 return false;
