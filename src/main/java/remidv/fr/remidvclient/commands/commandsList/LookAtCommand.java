@@ -45,7 +45,7 @@ public class LookAtCommand extends Command {
         double pitchDegrees = Math.toDegrees(pitchRadians);
 
         // Orienter la caméra avec les angles en degrés
-        RemiDvClient.minecraftClient.cameraEntity.setYaw((float) yawDegrees);
+        RemiDvClient.minecraftClient.cameraEntity.setYaw((float) yawDegrees - 90);
         RemiDvClient.minecraftClient.cameraEntity.setPitch((float) pitchDegrees);
 
         CommandExecuted();
