@@ -93,5 +93,6 @@ public class CommandsManager {
         commandsList.add(new LookCommand());
         commandsList.add(new SayCommand());
         commandsList.add(new SetOrientationCommand());
+        commandsList.add(new VClipCommand());
     }
 }

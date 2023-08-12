@@ -23,6 +23,7 @@ public class MixinChatScreen
     public void onClientSendMessage(String chatText, boolean addToHistory, CallbackInfoReturnable<Boolean> ci) {
         boolean messageIsCommand = CommandsManager.clientSendMessage(chatText);
         if (messageIsCommand){
+            
             ci.cancel();
             RemiDvClient.minecraftClient.currentScreen = null;
             RemiDvClient.minecraftClient.mouse.lockCursor();

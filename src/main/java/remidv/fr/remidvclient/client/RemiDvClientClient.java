@@ -17,13 +17,6 @@ public class RemiDvClientClient implements ClientModInitializer {
 
         CommandsManager.InitializeCommands();
 
-        ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while (modConfig.openMenuKeyBinding.wasPressed()) {
-                System.out.println("héhéhéh");
-                //client.player.sendMessage(Text.literal("Key 1 was pressed!"), false);
-            }
-        });
-
         //HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
         //    HUDInfo.DisplayCoordinates(drawContext);
         //});
